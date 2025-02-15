@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: rgb(145, 216, 240);
+    color: black;
+}
+
+/* Navigation bar */
+.nav-bar {
+    /* width: 100%; */
+    /* position: fixed; */
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 50;
+    background: white; 
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo {
+    width: 7rem;
+    cursor: pointer;
+    margin-right: 3.5rem;
+}
+
+/* Navigation links hides by default */
+.nav-links { 
+    display: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* shows on bigger screens */
+@media (min-width: 768px) { 
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0.75rem 3rem;
+        background: white;
+        border-radius: 999px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        background-opacity: 0.5;
+    }
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+/* Contact button hides on small screens*/
+.contact-btn { 
+    display: none;
+}
+
+/* Contact button displays on large screens*/
+@media (min-width: 1024px) { 
+    .contact-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.625rem 2.5rem;
+        border: 1px solid gray;
+        border-radius: 999px;
+        margin-left: 1rem;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+    }
+}
+
+/* makes arrow icon smaller */
+.arrow-icon {
+    width: 1rem;
+}
+.profile{
+    text-align: center;
+    margin-top: 20px;
+}
+.profile-pic {
+    width: 120px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 100px;
+}
+.name{
+    font-size: 20px;
+    /* font-weight: bold; */
+    margin-top: 10px;
+}
+.headline{
+    text-align: center;
+}
+.headline-text1{
+    font-size:50px;
+}
+.button1 {
+    width: 8rem;
+    border-radius: 2rem;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+.profile2{
+    text-align: center;
+    margin-top: 20px;
+    width: 20vw;
+    /* height: 15vw; */
+    border-radius: 5%;
+    margin-top: 50px;
+}
+
+.paragraph{
+    margin-bottom: 40px; 
+    max-width: 42rem; 
+    text-align: justify;
+    padding: 10px;
+}
+.colPic{
+    margin: 20px 20px;
+    justify-content: center;
+    display: flex;
+
+}
+.colp{
+    display: flex;
+    margin-left: 3rem;
+    line-height: 1.5;
+    justify-content: center;
+}
+
+.about-section{
+    display: block;
+}
+
+.head{
+    font-size:50px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+.contact{
+    text-align: center;
+}
+.enter_name{
+    height: 3rem;
+    width: 20rem;
+    margin-right: 0.5rem;
+}
+.enter_email{
+    height: 3rem;
+    width: 20rem;
+    margin-left: 0.5rem;
+}
+.enter_feedback{
+    text-align: center;
+    width: 41rem;
+    margin-top: 40px;
+    margin-bottom: 25px;
+}

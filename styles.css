@@ -1,178 +1,367 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html{
-    width: 100%;
-    scroll-behavior: smooth;
-}
-
-body{
-    font-family: Arial, sans-serif;
-    background-color: rgb(145, 216, 240);
-    color: black;
-}
-
-/* Navigation bar */
-.nav-bar {
-    /* width: 100%; */
-    /* position: fixed; */
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 50;
-    background: white; 
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo */
-.logo {
-    width: 7rem;
-    cursor: pointer;
-    margin-right: 3.5rem;
-}
-
-/* Navigation links hides by default */
-.nav-links { 
-    display: none;
-    text-decoration: none;
-    list-style: none;
-}
-
-/* shows on bigger screens */
-@media (min-width: 768px) { 
+/* applies to all elements */
+* { 
+    margin: 0; /* removes default margins*/
+    padding: 0; /* removes default paddings*/
+    box-sizing: border-box; /* ensures width/height include padding & border, prevents layout issues*/
+ }
+ 
+ 
+ html{
+    width: 100%; /* ensures the HTML document takes up the full width */
+    scroll-behavior: smooth; /* enables smooth scrolling */
+ }
+ 
+ body{
+    font-family: Arial, sans-serif; /* sets the font to Arial */
+    background-color: rgb(181, 229, 248); /* applies backgorund color*/
+    color: black; /* makes text color black*/
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ /*                 Navigation bar                */
+ .nav-bar {
+    padding: 10px 0;  /* adds vertical spacing*/
+    display: flex; /* makes it a flexbox container*/
+    align-items: center; /* centers items vertically*/
+    justify-content: space-between; /* ensures logo on the left and links on the right*/
+    z-index: 50; /* sets a high stacking order*/
+    background: white; /* applies backgorund color*/
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* adds a subtle shadow*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+ }
+ .logoAntonia{
+    width: 7rem; /* sets a fixed width*/
+    cursor: pointer; /* makes it clickable*/
+    margin-left: 4rem;
+    margin-right: 3rem; /* adds spacing between the logo and navigation links*/
+ }
+ .nav-links { 
+    display: none; /* hides the navigation links on small screens*/
+    text-decoration: none; /* removes underlines*/
+    list-style: none; /* removes bullets from the list*/
+ }
+ @media (min-width: 768px) {  /* for screens 768px or wider*/
     .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 0.75rem 3rem;
-        background: white;
-        border-radius: 999px;
+        display: flex; /* becomes visible and arranged horizontally*/
+        align-items: center; /* items are centered vertically*/
+        gap: 1.5rem; /* creates space between links*/
+        padding: 0.75rem 3rem; /* adds inner spacing*/
+        background: white; /* makes it a white rounded box*/
+        border-radius: 999px; /* creates a pill-shaped container*/
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        background-opacity: 0.5;
+ 
+        background-position-y: 0.5; /* adds a subtle shadow*/ 
     }
-}
-
-.nav-links li {
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-}
-
-/* Contact button hides on small screens*/
-.contact-btn { 
-    display: none;
-}
-
-/* Contact button displays on large screens*/
-@media (min-width: 1024px) { 
+ }
+ .nav-links a {
+    text-decoration: none; /* removes underlines*/
+    color: black; /* sets text color */
+    font-weight: 500; /* for medium-bold text*/
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*                 Contact Button                  */
+ .contact-btn { 
+    display: none; /* Contact button hides on small screens*/
+ }
+ @media (min-width: 1024px) { /* displays on larger screens */
     .contact-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 0.625rem 2.5rem;
-        border: 1px solid gray;
-        border-radius: 999px;
-        margin-left: 1rem;
-        text-decoration: none;
-        color: black;
-        font-weight: 500;
+        display: flex; /* makes it visible */
+        align-items: center; /* aligns the button and text */
+        gap: 0.75rem; /* adds spacing inside the button */
+        padding: 0.625rem 2.5rem; /* defines button size */
+        background-color: white;
+        border: 1px solid gray; /* adds a gray border */
+        border-radius: 999px; /* makes it pill-shaped */
+        margin-left: 1rem; 
+        margin-right: 4rem;
+        text-decoration: none; /* removes underlines */
+        color: black; /* sets text color */
+        font-weight: 500; /* for medium-bold text */
     }
-}
-
-/* makes arrow icon smaller */
-.arrow-icon {
-    width: 1rem;
-}
-.profile{
-    text-align: center;
+ }
+ .arrow-icon {
+    width: .8rem; /* makes arrow icon by contact smaller */
+ }
+ .menu-button {
+    display: block;
+    margin-right: 1rem; 
+    background: none;
+    border: none;
+    cursor: pointer;
+ }
+ .menu-icon {
+    width: 24px; 
+ }
+ @media (min-width: 768px) {
+    .menu-button {
+        display: none;
+    }
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*       Side Menu        */
+ .side-menu {
+    display: flex;
+    flex-direction: column;   /* Vertical layout */
+    gap: 1rem;                /* Spacing between items */
+    padding: 5rem 2.5rem;     /* Top & sides padding (py-20 px-10) */
+    position: fixed;          /* Fixed to the screen */
+    top: 0;                   /* Align to the top */
+    bottom: 0;                /* Stretch to the bottom */
+    right: -256px;            /* Hidden off-screen (-right-64 = -256px) */
+    width: 256px;             /* Menu width (w-64) */
+    height: 100vh;            /* Full viewport height (h-screen) */
+    background-color: #445c83; /* Soft rose background (bg-rose-50) */
+    z-index: 50;              /* Ensure it's on top (z-50) */
+    transition: right 0.5s;   /* Smooth slide animation (duration-500) */
+    list-style: none;
+ }
+ .side-menu li a {
+    text-decoration: none;
+    color: white; 
+    font-size: 1rem; 
+ }
+ /* Show Menu: calls 'open' class in JavaScript */
+ .side-menu.open {
+    right: 0; 
+ }
+ /* Close Button Container */
+ .close-button {
+    position: absolute;
+    right: 1.5rem; 
+    top: 1.5rem;  
+    cursor: pointer;
+ }
+ /* Close Icon Styling */
+ .close-icon {
+    width: 20px; 
+ }
+ /* Responsive: Hide on medium screens and above */
+ @media (min-width: 768px) {
+    .side-menu {
+        display: none;
+    }
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*                  Home Section: Profile              */
+ .profile{ 
+    text-align: center; /* centers the profile section*/
     margin-top: 20px;
-}
-.profile-pic {
+ }
+ .profile-pic {
     width: 120px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 50%; /* makes profile picture circular*/
     margin-top: 100px;
-}
-.name{
+ }
+ .name{
     font-size: 20px;
-    /* font-weight: bold; */
     margin-top: 10px;
-}
-.headline{
+ }
+ 
+ .Homeheadline{
     text-align: center;
-}
-.headline-text1{
-    font-size:50px;
-}
-.button1 {
-    width: 8rem;
+ }
+ .Homeheadline-text{
+    font-size:50px; /* Defines a large headline text*/
+ }
+ 
+ /*            Resume Button Styling            */
+ 
+ .resume-button1 { /* styles a transparent button with rounded edges*/
+    width: 9rem;
     border-radius: 2rem;
     background-color: transparent;
     text-align: center;
     margin-top: 40px;
     margin-bottom: 100px;
-}
-.profile2{
+ }
+ .resume-button1 li a{
+    text-decoration: none;
+ }
+ 
+ 
+ 
+ 
+ /*                                 ABOUT SECTIONN                                      */
+ #about{
     text-align: center;
-    margin-top: 20px;
-    width: 20vw;
-    /* height: 15vw; */
-    border-radius: 5%;
-    margin-top: 50px;
-}
-
-.paragraph{
-    margin-bottom: 40px; 
-    max-width: 42rem; 
-    text-align: justify;
-    padding: 10px;
-}
-.colPic{
-    margin: 20px 20px;
-    justify-content: center;
+     margin-top: 200px;
+     margin-bottom: 50px;
+ }
+ .about-section{
+    padding: 0 15px;
     display: flex;
-
-}
-.colp{
-    display: flex;
-    margin-left: 3rem;
-    line-height: 1.5;
-    justify-content: center;
-}
-
-.about-section{
-    display: block;
-}
-
-.head{
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3rem;
+ }
+ img{
+    width: 100%;
+    max-width: 400px;
+    object-fit: cover;
+    vertical-align: middle;
+ }
+ .intro-paragraphs{
+    flex: 1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+ 
+ 
+ 
+ /*              Contact Section              */
+ 
+ .head{ /* defines the main heading size and spacing*/
     font-size:50px;
     text-align: center;
-    margin-top: 100px;
     margin-bottom: 25px;
-}
-.contact{
-    text-align: center;
-}
-.enter_name{
+ }
+ .contact{
+    text-align: center; /* centers the contact form*/
+ }
+ .enter_name{ /* input field*/
     height: 3rem;
     width: 20rem;
     margin-right: 0.5rem;
-}
-.enter_email{
+ }
+ .enter_email{ /* input field*/
     height: 3rem;
     width: 20rem;
     margin-left: 0.5rem;
-}
-.enter_feedback{
-    text-align: center;
-    width: 41rem;
+ }
+ .enter_feedback{ /* adds spacing for the feedback input field*/
+    width: 20rem;
     margin-top: 40px;
     margin-bottom: 25px;
-}
+ }
+ .submitbtn {
+    background-color: black;
+    border-radius: 2rem;
+    width: 10rem;
+    height: 3rem;
+    color: white;
+    text-align: center;
+    font-size: 14.5px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+  }
+  .SubmitArrow{
+    width: 1.1rem;
+ }
+ 
+ 
+ 
+ 
+ 
+ /*                 Footer section               */
+ .footer {
+    margin-top: 20px;
+    text-align: center;
+ }
+ /* this is the footer class: margin top adds space above the footer to separate 
+ it from the main content. text align ensures centered text alignment */
+ 
+ .footer-top {
+    text-align: center;
+ }
+ /* text align ensures everything in the section is centered */
+ 
+ .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ /* display: flex; enables flexbox layout, flex-direction stacks elements 
+ vertically, align-items center-aligns items horizontally */
+ 
+ .logo {
+    width: 9rem;
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
+ }
+ /* sets a fixed width and adds spacing below the logo*/
+ 
+ .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: max-content;
+    margin: auto;
+ }
+ /* makes email icon and text appear in row, aligns icon and email text
+ vertically, adds space between the icon and text, ensures it only takes 
+ the space it needs, centers the contact info */
+ 
+ .mail-icon {
+    width: 1.5rem; 
+ }
+ /* sets size of email icon */
+ 
+ .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid gray;
+    margin: 3rem 10%;
+    padding: 1.5rem 0;
+ }
+ /* styles bottom section and makes it a flex container, stacks items vertically
+ on smaller screens, centers text and links horizontally, adds a gray top border
+ creates space vertical and left/right, adds vertical padding */
+ 
+ .social-links {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+    list-style: none;
+    text-decoration: none; 
+ }
+ .social-links li a{
+    text-decoration: none;
+    color: black;
+ }
+ /* styles the social media links and makes it a horizontal row, leaves spacing 
+ between each link, centers them horizontally, and adds space above the links */
+ @media (min-width: 640px) { /* applies styles only when the screen width is 640px or larger */
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    /* changes layout from vertical to horizontal and spreads the copyright 
+    and social links apart on larger screens*/
+ 
+    .social-links {
+        margin-top: 0;
+    }
+    /* Removes the margin-top on .social-links, since they are now aligned 
+    horizontally */
+ }

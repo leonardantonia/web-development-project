@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 // Serve static files (like images, css)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 // Body parser middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Serve the HTML form at the root URL
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/docs/index.html');
 });
 
 // Handle form submission

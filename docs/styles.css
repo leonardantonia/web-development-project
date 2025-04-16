@@ -175,6 +175,9 @@
     text-align: center; /* centers the profile section*/
     margin-top: 20px;
  }
+ .profile2{
+   
+ }
  .profile-pic {
     width: 120px;
     height: 150px;
@@ -250,17 +253,22 @@
  .enter_name{ /* input field*/
     height: 3rem;
     width: 20rem;
+    margin-left: 0.5rem;
     margin-right: 0.5rem;
+    padding-left: 10px;
  }
  .enter_email{ /* input field*/
     height: 3rem;
     width: 20rem;
     margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-left: 10px;
  }
  .enter_feedback{ /* adds spacing for the feedback input field*/
     width: 20rem;
     margin-top: 40px;
     margin-bottom: 25px;
+    padding-left: 10px;
  }
  .submitbtn {
     background-color: black;
